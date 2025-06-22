@@ -34,7 +34,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/listings/new">Add your home</a>
         </li>
-        <% if(!currUser) {%>
+        <% if(!res.locals.currUser) {%>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/signup"><b>Sign Up</b></a>
         </li>
@@ -42,7 +42,7 @@
           <a class="nav-link" href="/login"><b>Login</b></a>
         </li>
         <% } %>
-        <% if(currUser) { %>
+        <% if(res.locals.currUser) { %>
         <li class="nav-item">
           <a class="nav-link" href="/logout"><b>Logout</b></a>
         </li>

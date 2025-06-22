@@ -13,8 +13,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user.js');
 const app = express();
-//process.env.Mongo_DB_URL;
-const dbUrl = "mongodb+srv://SaiTeja:5nvDgPZwsoBYZAxf@cluster0.kggdost.mongodb.net/";
+const dbUrl = process.env.dbUrl;
 
 main().
 then(res => {console.log('connection successful')})
