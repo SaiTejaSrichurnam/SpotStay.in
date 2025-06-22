@@ -81,7 +81,6 @@
   }
     .filters{
         display: flex;
-        flex-wrap: wrap;
     }
     .filter{
         text-align: center;
