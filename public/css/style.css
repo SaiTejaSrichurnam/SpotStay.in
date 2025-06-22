@@ -81,6 +81,7 @@
   }
     .filters{
         display: flex;
+        flex-wrap: wrap;
     }
     .filter{
         text-align: center;
@@ -106,7 +107,6 @@
         border-radius: 20px;
         height: 3.5rem;
         padding: 1rem;
-        margin-left: 3rem;
         margin-top:0.8rem;
         display: flex;
         align-items: center;
