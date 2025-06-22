@@ -1,0 +1,114 @@
+.conatainer {
+    margin: 0 4rem;
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    min-height: 100vh;
+}
+.navbar {
+    height:5rem;
+    background-color: white;
+}
+.fa-compass {
+    color : #fe424d;
+    font-size: 2rem;
+}
+.nav-link {
+    color: #222222 !important;
+}
+.f_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ebebeb;
+    height: 6rem;
+    justify-content: space-evenly;
+}
+.f_info_links a {
+    text-decoration: none;
+    color: #222222;
+}
+.f_info_links a:hover {
+    text-decoration: underline;
+}
+.f_info_social i {
+    font-size: 1.4rem;
+    opacity: 0.8;
+}
+.f_info_social i:hover {
+    opacity: 1;
+}
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+}
+.listingcard{
+    border: none !important;
+}
+.indexcard {
+    padding: 0px !important;
+    padding-top: 0.5rem !important;
+}
+.detailsimg {
+    text-decoration: none;
+}
+.card-img-overlay {
+    opacity: 0;
+    background-color: white;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+}
+.btn{
+    background-color: #fe424d !important;
+}
+.btn-delete {
+    background-color: #000 !important;
+    color: #ebebeb !important;
+}
+/* Show card */
+.showoptions {
+    display: flex;
+    gap: 8px;
+}
+.showimg {
+    border-radius: 1.5rem !important;
+}
+#map {
+    height: 400px; /* required */
+    width: 100%;
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .filter{
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 1.5rem;
+        opacity: 0.7;
+    }
+    .filter p{
+        font-size: 0.8rem;
+    }
+    .filter i{
+        font-size: 1.2rem;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+    .tax-info{
+        display: none;
+    } 
+    .tax-toggle{
+        border: 2px solid black;
+        border-radius: 20px;
+        height: 3.5rem;
+        padding: 1rem;
+        margin-left: 3rem;
+        margin-top:0.8rem;
+        display: flex;
+        align-items: center;
+    }

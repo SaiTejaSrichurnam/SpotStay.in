@@ -1,0 +1,95 @@
+<%- layout('./layouts/boilerplate.ejs') %>
+    <div class="filters">
+        <div class="filter" style="margin-left: 0;">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Iconic cities</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>Arctic</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-landmark-dome"></i></div>
+            <p>Domes</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p>Boats</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-snowboarding"></i></div>
+            <p>Surfing</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </div>
+        <div class="tax-toggle">
+        <div class="form-check-reverse form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+        <label class="form-check-label" for="switchCheckDefault">Default switch checkbox input</label>
+        </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% for(let listing of allisting){ %>
+    <a href="/listings/<%=listing._id%>" class="detailsimg">
+    <div class="col">
+        <div class="card listingcard" >
+            <img src="<%=listing.image.url%>" class="card-img-top"  style="height: 20rem;" alt="listing">
+            <div class="card-img-overlay"></div>
+            <div class="card-body indexcard">
+                 <p class="card-text">
+                    <b><%= listing.title %></b><br>
+                     &#8377;<%= listing.price.toLocaleString('en-IN') %> / night
+                     <i class="tax-info">&nbsp; +18$ per/night</i>
+                 </p>
+             </div>
+         </div>
+    </div>
+    </a>
+    <% } %>
+   </div>
+   <script>
+    let toggle = document.querySelector('#switchCheckDefault');
+    toggle.addEventListener('click',(event) => {
+        console.log('click');
+        let taxdata = document.getElementsByClassName("tax-info");
+        for(t of taxdata) {
+            if(t.style.display != 'inline'){
+              t.style.display="inline";
+            }else{
+               t.style.display="none";
+            }
+        }
+        
+    })
+   </script>

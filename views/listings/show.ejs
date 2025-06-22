@@ -1,0 +1,90 @@
+<%- layout('./layouts/boilerplate.ejs') %>
+
+<div class="card mt-3 listingcard">
+  <div class="row g-0">
+    <div class="col-6 offset-3">
+      <h3><%= listing.title %></h3>
+      <div class="row">
+            <img src="<%= listing.image.url %>" class="card-img-top showimg" style="height:20rem" alt="listing">
+            <div class="card-body">
+               <p class="card-text">Owned by : <%= listing.owner.username %></p>
+               <p class="card-text"><%= listing.description %></p>
+               <p class="card-text">&#8377;<%= listing.price.toLocaleString('en-IN') %> / night</p>
+               <p class="card-text"><%= listing.location %></p>
+               <p class="card-text"><%= listing.country %></p>
+         </div>
+      </div>
+      <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+      <div class="row">
+            <div class="showoptions">
+               <a href="/listings/<%=listing._id%>/edit" class="btn mt-2 ">Edit</a>
+               <form method="post" action="/listings/<%= listing._id %>?_method=delete">
+                  <button class="btn mt-2 btn-delete">delete</button>
+               </form>
+            </div>
+      </div>
+      <% } %>
+      <% if(currUser) { %>
+         <hr>
+      <div class="row">
+         <form method="post" action="/listings/<%=listing._id %>/reviews" class="needs-validation" novalidate>
+             <h4>Review</h4>
+             <label for="rating" class="form-label">rating</label>
+             <fieldset class="starability-slot">
+               <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+               <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+               <label for="first-rate1" title="Terrible">1 star</label>
+               <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+               <label for="first-rate2" title="Not good">2 stars</label>
+               <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+               <label for="first-rate3" title="Average">3 stars</label>
+               <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+               <label for="first-rate4" title="Very good">4 stars</label>
+               <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+               <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+             <label for="com" class="form-label">comment</label>
+             <textarea name="review[comment]" id="com" rows="4"  class="form-control mb-3" required></textarea>
+             <div class="invalid-feedback mb-2">
+               Please enter your feedback
+             </div>
+             <button class="btn mb-3">Submit</button>
+         </form>
+      </div>
+      <% } %>
+      <hr>
+      <div class="row">
+         <% for(review of listing.reviews) {%>
+         <div class="col-sm-6 mb-3">
+            <div class="card">
+               <div class="card-body">
+                  <h5 class="card-title"><%= review.author.username %></h5>
+                  <p class="card-text starability-result" data-rating="<%= review.rating%>"></p>
+                  <p class="card-text"><%= review.comment%></p>
+                  <form method="post" action="/listings/<%= listing._id%>/reviews/<%= review._id%>?_method=DELETE">
+                     <button class="btn btn-delete">delete</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+          <% } %>
+      </div>
+      <div class="row">
+         <h3>Where you'll be,</h3>
+         <div id="map">
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<script>
+  window.listingData = {
+    lat: '<%= listing.Geolocation.coordinates[1] %>',
+    lng: '<%= listing.Geolocation.coordinates[0] %>',
+    title: "<%= listing.title %>",
+    location: "<%= listing.location %>"
+  };
+</script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/js/map.js"></script>
+
