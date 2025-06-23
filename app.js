@@ -72,7 +72,7 @@ app.use((req,res,next) => {
     res.locals.currUser = req.user;
     next();
 })
-//problem
+
 app.use('/listings',listingRoute);
 app.use('/listings/:id/reviews',reviewsRoute);
 app.use('/',userRoute);
