@@ -1,8 +1,8 @@
 # SpotStay.in
 SpotStay is a location-based hotel listing web application with interactive maps and geocoded search powered by Node.js, MongoDB, and Leaflet.<br/>
 🏡 SpotStay – A Full-Stack Rental Listing Platform
-Tech Stack: Node.js, Express, MongoDB, Passport.js, EJS, Bootstrap, Custom CSS, Mapbox, Joi, Render
-Live: <a href="spotstay-in.onrender.com">spotstay-in.onrender.com</a><br/>
+Tech Stack: Node.js, Express, MongoDB, Passport.js, EJS, Bootstrap, Custom CSS, Mapbox, Joi, Render<br/>
+[Link](spotstay-in.onrender.com)<br/>
 
 Developed a full-stack web application inspired by Airbnb using the MVC architecture.<br/>
 
